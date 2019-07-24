@@ -1,10 +1,8 @@
 package Pages;
 
-
-import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.edge.EdgeDriver;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,11 +30,11 @@ public class DriverManager {
                 break;
             case "edge":
                 System.setProperty("webdriver.edge.driver", PROPERTIES.getProperty("webdriver.edge.driver"));
-                driver = new ChromeDriver();
+                driver = new EdgeDriver();
                 break;
-            /*default:
+            default:
                 System.setProperty("webdriver.chrome.driver", PROPERTIES.getProperty("webdriver.chrome.driver"));
-                driver = new ChromeDriver();*/
+                driver = new ChromeDriver();
         }
         driver.get(PROPERTIES.getProperty("url"));
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
